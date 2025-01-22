@@ -19,7 +19,15 @@ export async function fetchRevenue() {
 
     const data = await sql<Revenue>`SELECT * FROM revenue`;
 
-    // console.log('Data fetch completed after 3 seconds.');
+    // const data = await sql<LatestInvoiceRaw>`
+    //   SELECT invoices.amount, customers.name, customers.image_url, customers.email
+    //   FROM invoices
+    //   JOIN customers ON invoices.customer_id = customers.id
+    //   ORDER BY invoices.date DESC
+    //   LIMIT 5`;
+
+
+    console.log('Data fetch completed after 3 seconds.');
 
     return data.rows;
   } catch (error) {
